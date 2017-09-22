@@ -1,10 +1,8 @@
 package com.selenium.test;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.http.client.utils.DateUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Cookie;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.*;
 import org.openqa.selenium.logging.Logs;
@@ -24,7 +22,7 @@ public class CtripTest {
 //STATUS COMPLETE
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         //get today date
         Date today = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat();
@@ -44,7 +42,11 @@ public class CtripTest {
 
         WebElement hotelNameTextField = driver.findElement(By.cssSelector("#hotelsCity"));
         hotelNameTextField.click();
+
+        takeSnapShot(driver, "C://Users//ygong1//IdeaProjects//SeleniumTest//hotelspopup.png");
+
         WebElement beijingLink = driver.findElement(By.linkText("Beijing"));
+
         beijingLink.click();
         WebElement checkInTextField = driver.findElement(By.cssSelector("#txtCheckInDisplay"));
         checkInTextField.click();
@@ -52,30 +54,41 @@ public class CtripTest {
 
         String todayLinkSelector = "div[data-id='" + dateToday + "']";
         WebElement todayLink = driver.findElement(By.cssSelector(todayLinkSelector));
-
+        System.err.println(todayLink.getAttribute("outerHTML"));
         WebElement previousMonth = driver.findElement(By.cssSelector("#prev-month"));
         WebElement nextMonth = driver.findElement(By.cssSelector("#next-month"));
 
+        takeSnapShot(driver, "C://Users//ygong1//IdeaProjects//SeleniumTest//calendar.png");
         todayLink.click();
 
         List<WebElement> starCheckBoxes = driver.findElements(By.cssSelector("label[class='ui_checkbox']"));
-        for (WebElement element:starCheckBoxes
-             ) {
-            if(element.findElement(By.cssSelector("label[value='2']")).isDisplayed()) {
-                element.findElement(By.cssSelector("label[value='2']")).click();
+        WebElement threeStarCheckbox = driver.findElement(By.cssSelector("label[value='" + "1,2" + "'] span[class='fake-checkbox']"));
+        threeStarCheckbox.click();
 
-            }
-        }
-
-
-
-
-
+        takeSnapShot(driver, "C://Users//ygong1//IdeaProjects//SeleniumTest//3starhotel.png");
         WebElement searchHotelsButton = driver.findElement(By.cssSelector("#homesearch-btn"));
-        searchHotelsButton.click();
+        //  searchHotelsButton.click();
 
 
     }
 
+    public static void takeSnapShot(WebDriver webdriver, String fileWithPath) throws Exception {
 
+        //Convert web driver object to TakeScreenshot
+
+        TakesScreenshot scrShot = ((TakesScreenshot) webdriver);
+
+        //Call getScreenshotAs method to create image file
+
+        File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
+
+        //Move image file to new destination
+
+        File DestFile = new File(fileWithPath);
+
+        //Copy file at destination
+
+        FileUtils.copyFile(SrcFile, DestFile);
+
+    }
 }
