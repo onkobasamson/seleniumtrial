@@ -59,15 +59,15 @@ public class CtripTest {
         WebElement nextMonth = driver.findElement(By.cssSelector("#next-month"));
 
         //takeSnapShot(driver, "C://Users//ygong1//IdeaProjects//SeleniumTest//calendar.png");
-        todayLink.click();
+       // todayLink.click();
 
         List<WebElement> starCheckBoxes = driver.findElements(By.cssSelector("label[class='ui_checkbox']"));
         WebElement threeStarCheckbox = driver.findElement(By.cssSelector("label[value='" + "1,2" + "'] span[class='fake-checkbox']"));
-        threeStarCheckbox.click();
+      //  threeStarCheckbox.click();
 
        // takeSnapShot(driver, "C://Users//ygong1//IdeaProjects//SeleniumTest//3starhotel.png");
         WebElement searchHotelsButton = driver.findElement(By.cssSelector("#homesearch-btn"));
-        //  searchHotelsButton.click();
+        searchHotelsButton.click();
 
 
     }
