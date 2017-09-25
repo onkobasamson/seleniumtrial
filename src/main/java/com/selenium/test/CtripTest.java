@@ -91,4 +91,10 @@ public class CtripTest {
         FileUtils.copyFile(SrcFile, DestFile);
 
     }
+    
+    
+    
+    public void addedMethos(){
+    
+    }
 }
