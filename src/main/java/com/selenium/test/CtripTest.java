@@ -43,7 +43,7 @@ public class CtripTest {
         WebElement hotelNameTextField = driver.findElement(By.cssSelector("#hotelsCity"));
         hotelNameTextField.click();
 
-        takeSnapShot(driver, "C://Users//ygong1//IdeaProjects//SeleniumTest//hotelspopup.png");
+        //takeSnapShot(driver, "C://Users//ygong1//IdeaProjects//SeleniumTest//hotelspopup.png");
 
         WebElement beijingLink = driver.findElement(By.linkText("Beijing"));
 
@@ -58,14 +58,14 @@ public class CtripTest {
         WebElement previousMonth = driver.findElement(By.cssSelector("#prev-month"));
         WebElement nextMonth = driver.findElement(By.cssSelector("#next-month"));
 
-        takeSnapShot(driver, "C://Users//ygong1//IdeaProjects//SeleniumTest//calendar.png");
+        //takeSnapShot(driver, "C://Users//ygong1//IdeaProjects//SeleniumTest//calendar.png");
         todayLink.click();
 
         List<WebElement> starCheckBoxes = driver.findElements(By.cssSelector("label[class='ui_checkbox']"));
         WebElement threeStarCheckbox = driver.findElement(By.cssSelector("label[value='" + "1,2" + "'] span[class='fake-checkbox']"));
         threeStarCheckbox.click();
 
-        takeSnapShot(driver, "C://Users//ygong1//IdeaProjects//SeleniumTest//3starhotel.png");
+       // takeSnapShot(driver, "C://Users//ygong1//IdeaProjects//SeleniumTest//3starhotel.png");
         WebElement searchHotelsButton = driver.findElement(By.cssSelector("#homesearch-btn"));
         //  searchHotelsButton.click();
 
