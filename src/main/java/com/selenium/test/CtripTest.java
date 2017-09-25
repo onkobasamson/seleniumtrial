@@ -67,7 +67,7 @@ public class CtripTest {
 
        // takeSnapShot(driver, "C://Users//ygong1//IdeaProjects//SeleniumTest//3starhotel.png");
         WebElement searchHotelsButton = driver.findElement(By.cssSelector("#homesearch-btn"));
-        //  searchHotelsButton.click();
+        searchHotelsButton.click();
 
 
     }
