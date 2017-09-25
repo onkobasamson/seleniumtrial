@@ -41,13 +41,13 @@ public class CtripTest {
 
 
         WebElement hotelNameTextField = driver.findElement(By.cssSelector("#hotelsCity"));
-        hotelNameTextField.click();
+       // hotelNameTextField.click();
 
         //takeSnapShot(driver, "C://Users//ygong1//IdeaProjects//SeleniumTest//hotelspopup.png");
 
         WebElement beijingLink = driver.findElement(By.linkText("Beijing"));
 
-        beijingLink.click();
+        //beijingLink.click();
         WebElement checkInTextField = driver.findElement(By.cssSelector("#txtCheckInDisplay"));
         checkInTextField.click();
 
